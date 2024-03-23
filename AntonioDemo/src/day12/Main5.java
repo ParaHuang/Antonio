@@ -1,6 +1,7 @@
 package day12;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Main5 {
@@ -16,7 +17,8 @@ public class Main5 {
 		set.add(22);
 		set.add(44);
 		set.add(11);
-		
+		Scanner scan=new Scanner(System.in);
+		scan.nextInt(10);
 		set.remove(22);
 		System.out.println(set.size());
 		

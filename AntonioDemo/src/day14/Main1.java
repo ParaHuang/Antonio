@@ -19,7 +19,8 @@ public class Main1 {
 			System.out.println("the result is "+z);
 //			System.out.println(4);
 		}catch (Exception e) {//crime
-			System.out.println("something goes wrong");
+//			System.out.println("something goes wrong");
+			e.printStackTrace();
 		}finally {//the important thing that you have to execute no matter there is exception or not
 			System.out.println("finally block");
 		}
