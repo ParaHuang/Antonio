@@ -1,4 +1,4 @@
-package day17;
+package day17_regex;
 
 public class Main2 {
 
@@ -12,11 +12,21 @@ public class Main2 {
 //		b.    only contains @ and . for once               
 //		c.    @ and . can't be in the begining or it the end     
 //		d.    . can't be in front of or next to @      
-		String email = "ab@163.com";
+		String email = "@163.com";
 //		String emailRegex = "\\w{1,}@\\w{1,}\\.\\w{1,}";
-		String emailRegex = "\\w{1,}@\\w{1,}[.]\\w{1,}";
+		String emailRegex = "\\w+@\\w+[.]\\w+";
 		System.out.println(email.matches(emailRegex));
+		
+		String str2 = "abc+";//abc+
+		String regex2 = "abc[+]";//abc  abcc abccc   
+		System.out.println(str2.matches(regex2));
 	}
 
 }
+
+
+
+
+
+
 
