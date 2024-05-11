@@ -1,0 +1,8 @@
+The error message 
+Failed to resolve parameter [int arg1] in method [void
+ seleniumtest.Test2.test2(java.lang.String,int)]
+ indicates a problem with parameter resolution in a parameterized test. 
+ The method `test2` expects a `String` and an `int`, but JUnit is unable 
+ to provide these parameters.
+
+To resolve this issue, you
