@@ -1,4 +1,4 @@
-The error message 
+The error message你好吗 
 Failed to resolve parameter [int arg1] in method [void
  seleniumtest.Test2.test2(java.lang.String,int)]
  indicates a problem with parameter resolution in a parameterized test. 
