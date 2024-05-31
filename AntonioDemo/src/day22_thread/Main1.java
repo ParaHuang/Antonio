@@ -59,7 +59,7 @@ public class Main1 {
 			}
 		};
 		
-		
+		//2.start it
 		t1.start();
 		t2.start();
 		

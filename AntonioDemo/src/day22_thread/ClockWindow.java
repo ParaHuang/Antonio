@@ -1,5 +1,6 @@
 package day22_thread;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -12,7 +13,7 @@ public class ClockWindow extends JFrame{
 		setLocation(500, 300);
 		//set close the window, then exit the program
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		setBackground(Color.RED);
 		
 		JLabel lbl = new JLabel("original text");
 		Font f = new Font("Comic Sans MS", Font.BOLD, 30);
