@@ -31,6 +31,7 @@ public class Main2 {
 			aList.add(i);
 			lList.add(i);
 		}
+		String str;
 		
 		long t1 = System.currentTimeMillis();
 		for(int i=0 ; i<100000 ; i++) {
