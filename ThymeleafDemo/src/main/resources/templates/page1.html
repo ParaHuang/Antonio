@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>this is the page to show Thymeleaf</h1>
+    <div>normal content</div>
+    ${xxx} -> expression language
+    <h2 th:text="${name}">this is default value, you'll see it when there is no thymeleaf</h2>
+
+    <div th:text="${3>1}"> ${3>1} 3>1 real content</div>
+    <div th:text="${5*3+2}">   </div>
+
+    th:if will decide the label exist or not
+    <div th:if="${3<1}">this will show up</div>
+    <div th:unless="${3<1}"> the expression is wrong</div>
+<!--    if...else...-->
+<!--user login,if username and password are correct, go to index page with his username shows up
+index page: a lot of other information
+-->
+</body>
+</html>

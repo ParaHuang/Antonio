@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div>Welcome,
+        <span th:text="${username}"></span>
+    </div>
+    <div th:text="${food}"></div>
+    <div>
+        id: <span th:text="${food.id}"></span> <br>
+        name: <span th:text="${food.name}"></span><br>
+        price: <span th:text="${food.price}"></span><br>
+    </div>
+    <div th:text="${list}"></div>
+
+    <div th:each="item,status:${list}"
+         th:text="${'the size of this list is:'+status.size+',current index is:'+status.index+',the current item is:'+item}">___________</div>
+    <!--
+        for(String item:list){
+            System.out.println(item);
+        }
+        for(int i=0 ; i<list.size() ; i++){
+            //i -> index
+        }
+    -->
+    <div th:each="item:${foods}">
+        <div>
+            id:<span th:text="${item.id}"></span><br>
+            name:<span th:text="${item.name}"></span> <br>
+            price:<span th:text="${item.price}"></span> <br>
+        </div>
+        <hr>
+    </div>
+<!--
+        for(Food item:foods){
+            System.out.println("-------------");
+            System.out.println(item.getId());
+            System.out.println(item.getName());
+            System.out.println(item.getPrice());
+            System.out.println("-------------");
+        }
+-->
+    <table border="1" cellspacing="0" cellpadding="2" width="500">
+        <tr>
+            <td colspan="3" align="center">Welcome to the restaurant</td>
+        </tr>
+        <tr>
+            <td>Food Id</td>
+            <td>Food Name</td>
+            <td>Food Price</td>
+        </tr>
+        <tr th:each="item:${foods}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
