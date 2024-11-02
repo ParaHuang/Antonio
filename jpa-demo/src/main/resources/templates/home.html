@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>welcome home!!</h1>
+    <form action="addFood" method="post">
+        <input type="text" name="name" placeholder="enter name"><br>
+        <input type="text" name="price" placeholder="enter price"><br>
+        <input type="text" name="unit" placeholder="enter unit"><br>
+        <input type="text" name="description" placeholder="enter description"><br>
+        <input type="submit">
+    </form>
+    
+    
+    <table border="1" cellspacing="0" cellpadding="10" width="500">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Unit</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="f:${list}">
+                <td th:text="${f.id}"></td>
+                <td th:text="${f.name}"></td>
+                <td th:text="${f.price}"></td>
+                <td th:text="${f.unit}"></td>
+                <td th:text="${f.description}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
