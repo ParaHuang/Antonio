@@ -1,6 +1,6 @@
 package com.example.jpademo.controller;
 
-import com.example.jpademo.FoodRepository;
+import com.example.jpademo.repository.FoodRepository;
 import com.example.jpademo.entity.Food;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
