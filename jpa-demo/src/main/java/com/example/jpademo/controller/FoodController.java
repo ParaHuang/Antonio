@@ -42,9 +42,24 @@ public class FoodController {
     @RequestMapping("/getFoods")
     public String getFoods(Model model){
         //jdbc:select * from food
-        List<Food> list = foodRepository.findAll();
+        List<Food> list = foodRepository.findAll();//Hibernate: select f1_0.id,f1_0.description,f1_0.name,f1_0.price,f1_0.unit from food f1_0
 //        System.out.println(list);
         model.addAttribute("list",list);
         return "home.html";
+    }
+
+    @RequestMapping("/delete")
+    public String deleteFood(int id){
+        foodRepository.deleteById(id);//Hibernate: delete from food where id=?
+        return "redirect:/getFoods";
+    }
+    @RequestMapping("/update")
+    public String updateFood(Food food){
+//        foodRepository.deleteById(id);//Hibernate: delete from food where id=?
+//        System.out.println(food);
+        //if the primary key is new, then save is insert
+        //otherwise save is update
+        foodRepository.save(food);//update food set description=?, name=?, price=?, unit=? where id=?
+        return "redirect:/getFoods";
     }
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script></script>
 </head>
 <body>
     <h1>welcome home!!</h1>
@@ -13,7 +14,7 @@
         <input type="text" name="description" placeholder="enter description"><br>
         <input type="submit">
     </form>
-    
+
     
     <table border="1" cellspacing="0" cellpadding="10" width="500">
         <thead>
@@ -23,6 +24,7 @@
                 <th>Price</th>
                 <th>Unit</th>
                 <th>Description</th>
+                <th>operations</th>
             </tr>
         </thead>
         <tbody>
@@ -32,8 +34,58 @@
                 <td th:text="${f.price}"></td>
                 <td th:text="${f.unit}"></td>
                 <td th:text="${f.description}"></td>
+                <td>
+<!--                    <a th:href="@{delete(id=${f.id})}">delete</a>-->
+<!--                    <a th:href="@{update(id=${f.id},name='new_Food',price=14)}">update</a>-->
+<!--                    fulfill input box with old data,then submit, and food data will be modified-->
+
+<!--                    1.button wrapped with a link-->
+<!--                    <a th:href="@{delete(id=${f.id})}">-->
+<!--                        <button>delete</button>-->
+<!--                    </a>-->
+<!--                    2.button with onclick event    -->
+<!--                    <button th:onclick="del(10)">delete</button>-->
+                    <button th:onclick="'del(' + ${f.id}  + ')'">delete</button>
+                    <button th:onclick="update([[${f.name}]],[[${f.price}]],[[${f.unit}]],[[${f.description}]])">update</button>
+                </td>
+
+
+<!--                http://localhost:8080/path?param1=value1&param2=value2-->
+<!--       th:href="@{path(param1=${obj.value1},param2=${obj.value2})}"         -->
+
             </tr>
         </tbody>
     </table>
+
+    <script>
+        function del(id){//no param type, no return type
+            //show a dialog
+            // alert('hello'+id);
+            //js imitate a link
+            /*window.*/location.href = 'delete?id='+id;   //html,javascript,css , "" == ''
+        }
+
+        function update(name,price,unit,description){
+            //set up every input box with a inforamtion
+            //document is whole web page
+            //forms is all the form in this page, [0] means the first one
+            //.price   looking for the form-element lable which name is "price"
+            //<input name="price"/>
+            //.value   is to set up the value of that form-element
+            document.forms[0].name.value = name;
+            document.forms[0].price.value = price;
+            document.forms[0].unit.value = unit;
+            document.forms[0].description.value = description;
+        }
+        //define a function(image it as a java method)
+        /*
+        public void name(int a,String b,double c){
+
+        }
+         */
+
+        //call
+        //name(10,'hello',3.14);
+    </script>
 </body>
 </html>
