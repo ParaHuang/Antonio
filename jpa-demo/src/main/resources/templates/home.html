@@ -8,6 +8,7 @@
 <body>
     <h1>welcome home!!</h1>
     <form action="addFood" method="post">
+        <input type="text" name="id" readonly><br>
         <input type="text" name="name" placeholder="enter name"><br>
         <input type="text" name="price" placeholder="enter price"><br>
         <input type="text" name="unit" placeholder="enter unit"><br>
@@ -46,7 +47,7 @@
 <!--                    2.button with onclick event    -->
 <!--                    <button th:onclick="del(10)">delete</button>-->
                     <button th:onclick="'del(' + ${f.id}  + ')'">delete</button>
-                    <button th:onclick="update([[${f.name}]],[[${f.price}]],[[${f.unit}]],[[${f.description}]])">update</button>
+                    <button th:onclick="update([[${f.id}]],[[${f.name}]],[[${f.price}]],[[${f.unit}]],[[${f.description}]])">update</button>
                 </td>
 
 
@@ -65,17 +66,20 @@
             /*window.*/location.href = 'delete?id='+id;   //html,javascript,css , "" == ''
         }
 
-        function update(name,price,unit,description){
+        function update(id,name,price,unit,description){
             //set up every input box with a inforamtion
             //document is whole web page
             //forms is all the form in this page, [0] means the first one
             //.price   looking for the form-element lable which name is "price"
             //<input name="price"/>
             //.value   is to set up the value of that form-element
+            document.forms[0].id.value = id;
             document.forms[0].name.value = name;
             document.forms[0].price.value = price;
             document.forms[0].unit.value = unit;
             document.forms[0].description.value = description;
+
+            document.forms[0].action = "update";
         }
         //define a function(image it as a java method)
         /*

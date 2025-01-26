@@ -1,6 +1,72 @@
 <html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <body>
-<h1>hello word!!!</h1>
-<p>this is a html page</p>
+<h1>restaurant</h1>
+<table border="1" cellspacing="0" cellpadding="10" width="500">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Unit</th>
+        <th>Description</th>
+        <th>operations</th>
+    </tr>
+    </thead>
+    <tbody id="foodItems">
+
+    </tbody>
+</table>
+
+<h1 id="testTitle"></h1>
+
+<script>
+    // function dealReponse(resp){
+    //     console.log(resp.data.message)
+    // }
+
+    //send a get request   http://localhost:8080
+    axios.get('/jpa/rest/getFoods')
+        .then(function(resp){
+            // console.log(resp)
+            // console.log(resp.data)
+            // console.log(resp.data.content)
+            let list = resp.data.content;
+            //java      for(Food f:list){}
+            for (let element of list) {
+                console.log(element)
+                // let tr = "<tr>" +
+                //     "            <td>"+element.id+"</td>" +
+                //     "            <td>"+element.name+"</td>" +
+                //     "            <td>"+element.price+"</td>" +
+                //     "            <td>"+element.unit+"</td>" +
+                //     "            <td>"+element.description+"</td>" +
+                //     "            <td>"+element.description+"</td>" +
+                //     "        </tr>";
+                //
+                let tr = `
+                    <tr>
+                        <td>${element.id}</td>
+                        <td>${element.name}</td>
+                        <td>${element.price}</td>
+                        <td>${element.unit}</td>
+                        <td>${element.description}</td>
+                        <td>${element.description}</td>
+                    </tr>
+                `;
+
+                foodItems.innerHTML += tr;
+            }
+            //append food into tbody 1 by 1
+            // testTitle.innerHTML = "hello,html";
+        })
+
+    let info = "hello , this is info";
+    let x = 13;
+    // let bigInfo = "Para, "+info+",good by, Para"+x;
+    let bigInfo = `Para, ${info},good by, Para${x}`;
+    console.log(bigInfo)
+
+</script>
 </body>
 </html>

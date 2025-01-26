@@ -14,7 +14,7 @@ public class FoodController {
     @Autowired
     FoodRepository foodRepository;
     @RequestMapping("/addFood")
-    public String addFood(String name,double price,String unit,String description){
+    public String addFood(Food food){
 //        jdbc:insert into food values ....
 //        insert
 //        foodRepository.save(object);
@@ -31,7 +31,7 @@ public class FoodController {
 //        select by primary key
 //        foodRepository.findById(id)
 //        Food food = new Food(null,"burger",15.0,null,"yummy");
-        Food food = new Food(null,name,price,unit,description);
+//        Food food = new Food(null,name,price,unit,description);
 //        food.get
         foodRepository.save(food);  //Hibernate: insert into food (description, name, price, unit) values (?, ?, ?, ?)
 
@@ -56,8 +56,8 @@ public class FoodController {
     @RequestMapping("/update")
     public String updateFood(Food food){
 //        foodRepository.deleteById(id);//Hibernate: delete from food where id=?
-//        System.out.println(food);
-        //if the primary key is new, then save is insert
+        System.out.println(food);
+        //if the primary key is new or not set up, then save is insert
         //otherwise save is update
         foodRepository.save(food);//update food set description=?, name=?, price=?, unit=? where id=?
         return "redirect:/getFoods";
