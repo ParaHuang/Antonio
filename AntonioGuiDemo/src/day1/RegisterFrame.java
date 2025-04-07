@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
 
 public class RegisterFrame extends JFrame {
 
@@ -44,7 +45,7 @@ public class RegisterFrame extends JFrame {
 
 	public RegisterFrame() {//local variable
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(1000, 100, 450, 640);
+		setBounds(1000, 100, 450, 695);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -145,6 +146,18 @@ public class RegisterFrame extends JFrame {
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		
+
+		JLabel lblCountry = new JLabel("Country:");
+		lblCountry.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblCountry.setBounds(58, 564, 102, 29);
+		contentPane.add(lblCountry);
+		
+		String[] ary = {"USA","UK","China","Spain"};
+		JComboBox comboBox = new JComboBox(ary);
+		comboBox.setBounds(161, 565, 207, 29);
+		contentPane.add(comboBox);
+		
+		
 		JButton registerBtn = new JButton("Register");
 		registerBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -164,10 +177,13 @@ public class RegisterFrame extends JFrame {
 				
 				System.out.println(hobbyStr);
 				System.out.println(textArea.getText());
+				String country = comboBox.getSelectedItem().toString();
+				System.out.println(country);
 			}
 		});
-		registerBtn.setBounds(161, 562, 117, 29);
+		registerBtn.setBounds(164, 621, 117, 29);
 		contentPane.add(registerBtn);
+		
 		
 		//		String hobbyStr = "";
 		//		for(JCheckBox box:checks) {
