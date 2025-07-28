@@ -178,6 +178,11 @@ public class RegisterFrame extends JFrame {
 				System.out.println(hobbyStr);
 				System.out.println(textArea.getText());
 				String country = comboBox.getSelectedItem().toString();
+				
+				//find out the index of the item selected
+//				int index = comboBox.getSelectedIndex();
+				
+				
 				System.out.println(country);
 			}
 		});
