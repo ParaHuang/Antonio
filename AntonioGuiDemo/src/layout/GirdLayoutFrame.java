@@ -47,6 +47,7 @@ public class GirdLayoutFrame extends JFrame {
 //										   rows  columns	rgap  cgap
 		contentPane.setLayout(new GridLayout(10, 10        , 2 , 2));
 		
+		//for macOS
 		try {
 		    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (Exception e) {
