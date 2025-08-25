@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-public class GirdLayoutFrame extends JFrame {
+public class GirdLayoutFrame extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -66,6 +66,8 @@ public class GirdLayoutFrame extends JFrame {
 //				}
 //			}
 //		};
+		
+		/*
 		//lambda
 		ActionListener listener = (e)->{
 			//method body
@@ -83,15 +85,17 @@ public class GirdLayoutFrame extends JFrame {
 			//right
 			changeColor(i+1);
 		};
+		*/
 		
-		
+//		MyListener my = new MyListener();
 		
 		for(int i=0 ; i<100 ; i++) {
 			btns[i] = new JButton();
 			btns[i].setBackground(Color.PINK);
 			btns[i].setActionCommand(i+"");//set up nickname for every button
 			contentPane.add(btns[i]);
-			btns[i].addActionListener(listener);
+//			btns[i].addActionListener(listener);
+			btns[i].addActionListener(this);
 			
 		}
 		
@@ -104,4 +108,47 @@ public class GirdLayoutFrame extends JFrame {
 			btns[index].setBackground(Color.PINK);
 		}
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String command = e.getActionCommand();//nickname
+//		System.out.println(command);
+		int i = Integer.parseInt(command);
+		//current button
+		changeColor(i);
+		//up
+		changeColor(i-10);
+		//down
+		changeColor(i+10);
+		//left
+		changeColor(i-1);
+		//right
+		changeColor(i+1);
+	}
 }
+
+
+class MyListener implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String command = e.getActionCommand();//nickname
+		System.out.println(command);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
