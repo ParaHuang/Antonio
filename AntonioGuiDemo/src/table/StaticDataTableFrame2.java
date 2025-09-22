@@ -1,7 +1,9 @@
 package table;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
-public class StaticDataTableFrame extends JFrame {
+public class StaticDataTableFrame2 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -28,7 +30,7 @@ public class StaticDataTableFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StaticDataTableFrame frame = new StaticDataTableFrame();
+					StaticDataTableFrame2 frame = new StaticDataTableFrame2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +42,7 @@ public class StaticDataTableFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public StaticDataTableFrame() {
+	public StaticDataTableFrame2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -56,36 +58,39 @@ public class StaticDataTableFrame extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		Object[] titles = {"number","name","age","gender"};
-		Object[][] data = {
-				{1001,"Jack",18,"male"},
-				{1002,"Alex",18,"female"},
-				{1003,"Lucy",18,"female"}
-		};
-		//define data
-//		TableModel model = new DefaultTableModel( data-2DArray,titles-1DArray);
-//		TableModel model = new DefaultTableModel(data,titles) {
-//			@Override
-//			public boolean isCellEditable(int row, int column) {
-//				// TODO Auto-generated method stub
-//				return false;
-//			}
-//		};
+		Vector<Object> titles = new Vector<Object>();
+		titles.add("number");
+		titles.add("name");
+		titles.add("age");
+		titles.add("gender");
 		
-		TableModel model = new UneditableTableModel(data,titles);
+		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+		
+		Vector<Object> row1 = new Vector<Object>();
+		row1.add(1001);
+		row1.add("Jack");
+		row1.add(18);
+		row1.add("male");
+		data.add(row1);
+		
+		Vector<Object> row2 = new Vector<Object>();
+		row2.add(1002);
+		row2.add("Tom");
+		row2.add(18);
+		row2.add("male");
+		data.add(row2);
+		
+		Vector<Object> row3 = new Vector<Object>();
+		row3.add(1003);
+		row3.add("Lucy");
+		row3.add(18);
+		row3.add("female");
+		data.add(row3);
+
+		TableModel model = new DefaultTableModel(data,titles);
+//		TableModel model = new UneditableTableModel(data,titles);
 		
 		table.setModel(model);
-		
-		
-		
-		Thread t = new Thread() {
-			@Override
-			public void run() {
-				
-			}
-		};
-		t.start();
-		
 		
 		
 		
