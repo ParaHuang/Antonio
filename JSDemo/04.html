@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    First Number:<input id="num1"/><br/>
+    Second Number:<input id="num2"/><br/>
+    <button onclick="add()">+</button>
+    <button>-</button>
+    <button onclick="times()">*</button>
+    <button>/</button><br/>
+    Result:<input id="result"/>
+
+    <script>
+        function add(){
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            
+            var result = parseFloat(num1) + parseFloat(num2);       
+            
+            document.getElementById("result").value = result;
+        }
+
+        function times(){
+            //1.get 2 numbers => get the value of input box
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            console.log(num1,num2);
+            
+            //2.do operation
+            var result = num1 * num2;       //"11",11 ->11
+            console.log(result);
+            
+            //3.show result
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
+</html>
